@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--namespace属性: 接口类的全限定名-->
+<mapper namespace="com.itwf.dao.CheckItemDao">
+    <insert id="add" parameterType="com.itwf.pojo.CheckItem">
+        insert into t_checkitem values(null,#{code},#{name},#{sex},#{age},#{price},#{type},#{attention},#{remark})
+    </insert>
+    <update id="update" parameterType="com.itwf.pojo.CheckItem">
+              update t_checkitem set code=#{code},name=#{name},sex=#{sex},age=#{age},price=#{price},
+              type=#{type},attention=#{attention},remark=#{remark} where id=#{id}
+    </update>
+    <delete id="delete" parameterType="integer">
+        delete from t_checkitem where id = #{id}
+    </delete>
+    <select id="findAll" resultType="com.itwf.pojo.CheckItem">
+    select * from t_checkitem
+</select>
+    <select id="findByid" parameterType="integer" resultType="com.itwf.pojo.CheckItem">
+        select * from t_checkitem where id = #{id}
+    </select>
+</mapper>
